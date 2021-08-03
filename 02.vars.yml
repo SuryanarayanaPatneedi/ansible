@@ -11,3 +11,12 @@
        URL: sample.vars.com
       debug:
         msg: URL= {{URL}}
+
+-  name: vars from file
+   hosts: all
+   vasrs:
+     - example.vars.yml
+   tasks:
+    - name: vars from file
+      debug:
+        msg: URL={{URL}}
