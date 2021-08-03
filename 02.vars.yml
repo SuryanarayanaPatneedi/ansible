@@ -3,11 +3,11 @@
    vars:
      URL: sample.vars.com
    tasks:
-     - name: var from  plan
-        debug:
-          msg: URL ={{URL}}
-     - name: var from task
-        vars:
-          URL: sample.vars.com
-        debug:
-          msg: URL= {{URL}}
+    - name: var from  plan
+      debug:
+        msg: URL ={{URL}}
+    - name: var from task
+      vars:
+       URL: sample.vars.com
+      debug:
+        msg: URL= {{URL}}
