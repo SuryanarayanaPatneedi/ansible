@@ -1,6 +1,6 @@
 - name: sample play book
   hosts: all
   tasks:
-    - nmae: print hello
+    - name: print hello
       ansible.builtin.debug:
         msg: hello
