@@ -17,6 +17,6 @@
    vasrs:
      - example.vars.yml
    tasks:
-    - name: vars from file
-      debug:
-        msg: URL={{URL}}
+  -  name: vars from file
+     debug:
+       msg: URL={{URL}}
