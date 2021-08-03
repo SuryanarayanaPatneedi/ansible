@@ -1,14 +1,13 @@
-- name: sample var declaration
-  hosts: all
-  vars:
-    URL: sample.variable.com
-  tasks:
-      - name: print varibale from play
+-  name: sample on varible
+   hosts: all
+   vars:
+     URL: sample.vars.com
+   tasks:
+     - name: var from  plan
         debug:
-          msg: URL = {{ URL }}
-
-      - name: print varible from task
+          msg: URL ={{URL}}
+     - name: var from task
         vars:
-          URL: sample.task.com
+          URL: sample.vars.com
         debug:
           msg: URL= {{URL}}
