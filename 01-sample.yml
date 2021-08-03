@@ -8,6 +8,6 @@
 - name: sample play 2
   hosts: all
   tasks:
-    - name:
+    - name: print bye
         ansible.builtin.debug:
           msg: bye
