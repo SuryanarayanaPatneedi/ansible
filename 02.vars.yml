@@ -1,0 +1,8 @@
+- name: sample var declaration
+  hosts: all
+  vars:
+    URL: sample.variable.com
+    tasks:
+      - name: print varibale
+        ansible.builting.debug:
+          msg: URL {{ URL }}
