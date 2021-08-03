@@ -14,7 +14,7 @@
 
 -  name: vars from file
    hosts: all
-   vasrs:
+   vars_files:
      - example.vars.yml
    tasks:
     - name: vars from file
