@@ -4,6 +4,5 @@
     - name: print hello
       ansible.builtin.debug:
         msg: hello
-    - name: print bye
       ansible.builtin.debug:
         msg: bye
