@@ -28,7 +28,7 @@
      debug:
       msg: URL={{URL}}
 
-- name: vars from demo role
+- name: Demo on vars from roles
   hosts: all
   roles:
     - name: demo
