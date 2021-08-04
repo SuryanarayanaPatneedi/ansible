@@ -31,4 +31,4 @@
 - name: vars from demo role
   hosts: all
   roles:
-    - demo
+    - name: demo
