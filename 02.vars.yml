@@ -20,3 +20,10 @@
     - name: vars from file
       debug:
         msg: URL={{URL}}
+
+- name: vars from file
+  hosts: all
+  tasks:
+    - name: vars from  inv
+      debug:
+      msg: URL={{URL}}
