@@ -21,7 +21,7 @@
       debug:
         msg: URL={{URL}}
 
-- name: vars from file
+- name: vars from invfile
   hosts: all
   tasks:
     - name: vars from  inv
