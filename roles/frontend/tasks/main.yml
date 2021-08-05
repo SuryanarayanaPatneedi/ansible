@@ -4,6 +4,6 @@
    state: installed
 
 - name: Starting Nginx
-  systemd:
-  name: nginx
-  state: start
+   systemd:
+   name: nginx
+   state: start
