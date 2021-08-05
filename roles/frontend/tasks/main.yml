@@ -5,5 +5,5 @@
 
 - name: Starting Nginx
    systemd:
-   name: nginx
-   state: start
+      name: nginx
+     state: start
