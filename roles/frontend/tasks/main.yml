@@ -3,7 +3,7 @@
    name: nginx
    state: installed
 
-- name: Starting Nginx
-   systemd:
-      name: nginx
-     state: start
+- name: Start service Nginx
+  ansible.builtin.service:
+    name: nginx
+    state: started
