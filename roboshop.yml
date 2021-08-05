@@ -6,6 +6,7 @@
    #  -  name: frontend
 
 - name: Mongodb setup
+  hosts: MONGODB
   become: yes
   tags: mongodb
   roles:
