@@ -3,7 +3,31 @@
    name: nginx
    state: installed
 
-- name: Start service Nginx
-  ansible.builtin.service:
+- name: Remove old content
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
+
+- name: Download and Extract Frontend content
+  include_role:
+    name: common
+    tasks_from: download
+
+- name: Copy the extracted content
+  copy:
+    src: /tmp/frontend-main/static/
+    dest: /usr/share/nginx/html/
+    remote_src: yes
+
+- name: Copy roboshop configuration file
+  copy:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+
+- name: Restart Nginx Service
+  systemd:
     name: nginx
-    state: started
+    state: restarted
+    enabled: yes
+
+
