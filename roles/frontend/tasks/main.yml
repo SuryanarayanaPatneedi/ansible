@@ -10,8 +10,8 @@
 
 - name: Download and Extract Frontend content
   include_role:
-    name: common
-    tasks_from: download
+     name: common
+     tasks_from: download
 
 - name: Copy the extracted content
   copy:
