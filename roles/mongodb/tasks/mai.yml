@@ -3,39 +3,3 @@
     src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
 
-- name: Install MongoDB
-  yum:
-    name: mongodb-org
-    state: present
-
-- name: Update MongoDB Listen Address
-  ansible.builtin.replace:
-    path:  /etc/mongod.conf
-    regexp: '127.0.0.1'
-    replace: '0.0.0.0'
-
-- name: Start MongoDB service
-  systemd:
-    name: mongod
-    state: started
-
-- name: Download and Extract Frontend content
-  include_role:
-    name: surya
-    tasks_from: download
-
-- name: Load Schema
-  community.mongodb.mongodb_shell:
-    file: "/tmp/mongodb-main/{{item}}.js"
-    idempotent: yes
-  loop:
-    - catalogue
-    - users
-
-#- name: Load Schema
-#  community.mongodb.mongodb_shell:
-#    file: "/tmp/mongodb-main/{{item.name}}.js"
-#    idempotent: "{{item.idempotency}}"
-#  loop:
-#    - {name: "catalogue", idempotency: yes}
-#    - {name: "users", idempotency: yes}
