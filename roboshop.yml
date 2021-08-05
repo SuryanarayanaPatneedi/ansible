@@ -5,9 +5,8 @@
   roles:
      -  name: frontend
 
-- name: Mongodb setup
-  hosts: MONGODB
-  become: yes
-  tags: mongodb
-  roles:
-    - name: mongodb
+#- name: Mongodb setup
+ ##become: yes
+  #tags: mongodb
+  #roles:
+   # - name: mongodb
