@@ -11,3 +11,39 @@
   tags: mongodb
   roles:
     - name: mongodb
+
+- name: RoboShop Catalogue Setup
+  hosts: CATALOGUE
+  become: yes
+  tags: catalogue
+  roles:
+    - name: catalogue
+
+- name: RoboShop Redis Setup
+  hosts: REDIS
+  become: yes
+  tags: redis
+  roles:
+    - name: redis
+
+- name: RoboShop User Setup
+  hosts: USER
+  become: yes
+  tags: user
+  roles:
+    - name: user
+
+- name: RoboShop Cart Setup
+  hosts: CART
+  become: yes
+  tags: cart
+  roles:
+    - name: cart
+
+- name: RoboShop MySQL Setup
+  hosts: MYSQL
+  become: yes
+  tags: mysql
+  roles:
+    - name: mysql
+
