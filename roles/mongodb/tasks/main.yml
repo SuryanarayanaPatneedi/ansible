@@ -21,7 +21,7 @@
 
 - name: Download and Extract Frontend content
   include_role:
-    name: surya
+    name: common
     tasks_from: download
 
 - name: Load Schema

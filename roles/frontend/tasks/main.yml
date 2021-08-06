@@ -10,7 +10,7 @@
 
 - name: Download and Extract Frontend content
   include_role:
-    name: surya
+    name: common
     tasks_from: download
 
 - name: Copy the extracted content
@@ -24,4 +24,8 @@
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
 
-
+- name: Restart Nginx Service
+  systemd:
+    name: nginx
+    state: restarted
+    enabled: yes

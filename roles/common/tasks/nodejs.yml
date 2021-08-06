@@ -1,0 +1,38 @@
+- name: Install NodeJS
+  yum:
+    name: [ "nodejs", "make", "gcc-c++" ]
+    state: present
+
+- name: Add RoboShop Application User
+  ansible.builtin.user:
+    name: roboshop
+
+- name: Download GitHub
+  include_tasks:
+    file: download.yml
+
+- name: Copy the extracted content
+  copy:
+    src: /tmp/{{COMPONENT}}-main/
+    dest: /home/roboshop/{{COMPONENT}}/
+    remote_src: yes
+    owner: roboshop
+    group: roboshop
+
+- name: Install {{COMPONENT}} Dependencies
+  community.general.npm:
+    path: /home/roboshop/{{COMPONENT}}
+    state: latest
+  become_user: roboshop
+
+- name: Update SystemD Configuration
+  copy:
+    src: systemd.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
+
+- name: Restart {{COMPONENT}} Service
+  systemd:
+    name: "{{COMPONENT}}"
+    state: restarted
+    enabled: yes
+    daemon_reload: yes

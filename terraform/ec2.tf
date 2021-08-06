@@ -3,7 +3,7 @@ resource "aws_spot_instance_request" "cheap_worker" {
   ami                       = "ami-074df373d6bafa625"
   spot_price                = "0.0031"
   instance_type             = "t3.micro"
-  vpc_security_group_ids    = ["sg-0fdabf3f5a8512ce2"]
+  vpc_security_group_ids    = ["sg-0d00b6b80c9e9b60c"]
   wait_for_fulfillment      = true
   //spot_type                 = "persistent"
   tags                      = {
@@ -22,7 +22,7 @@ resource "aws_route53_record" "records" {
   count                     = local.LENGTH
   name                      = element(var.COMPONENTS, count.index)
   type                      = "A"
-  zone_id                   = "Z029597183QHVTB3PO8K"
+  zone_id                   = "Z00458692YJCZCCSC0W6X"
   ttl                       = 300
   records                   = [element(aws_spot_instance_request.cheap_worker.*.private_ip, count.index)]
 }
